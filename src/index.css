@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* ... */
+
+.page-title{
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.833);
+    font-weight: bold;
+}
