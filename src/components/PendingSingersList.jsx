@@ -42,6 +42,23 @@ function PendingSingersList() {
         }
       }
 
+      const rejectSinger=async(record,status)=>{
+        try {
+          const response=await axios.post('http://localhost:5000/api/admin/reject-singer-account',{singerId:record._id,status:status},{
+            headers:{
+              Authorization:`${localStorage.getItem("token")}`
+            }
+          })
+    
+          if(response.data.success){
+            toast.success(response.data.message)
+            getSingersData()
+          }
+        } catch (error) {
+          toast.error("Error changing doctor account status")
+        }
+      }
+
       useEffect(()=>{
           getSingersData();
       },[])
@@ -51,7 +68,7 @@ function PendingSingersList() {
         {
           title:"Name",
           dataIndex:"name",
-          render:(text,record)=><span>{record.firstName} {record.lastName}</span> 
+          render:(text,record)=><span>{record.name}</span> 
         },
         {
           title:"Phone",
@@ -71,9 +88,9 @@ function PendingSingersList() {
           title:"Actions",
           dataIndex:"actions",
           render:(text,record)=>(
-            <div className=''>
+            <div className='flex gap-3'>
               {record.status==='pending' && <h1 className='cursor-pointer' onClick={()=>changeSingerStatus(record,"approved")}>Approve</h1>}
-              {record.status==='approved' && <h1 className='cursor-pointer' onClick={()=>changeSingerStatus(record,"blocked")}>Block</h1>}
+              {record.status==='pending' && <h1 className='cursor-pointer' onClick={()=>rejectSinger(record,"reject")}>Reject</h1>}
             </div>
           )
         }

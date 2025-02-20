@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import UsersList from './components/UsersList';
 import ApprovedSingersList from './components/ApprovedSingersList';
 import PendingSingersList from './components/PendingSingersList';
+import RejectedSingersList from './components/RejectedSingersList';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/users' element={<ProtectedRoute><UsersList /> </ProtectedRoute>} />
           <Route path='/pending-singers' element={<ProtectedRoute><PendingSingersList /> </ProtectedRoute>} />
           <Route path='/Approve-singers' element={<ProtectedRoute><ApprovedSingersList /> </ProtectedRoute>} />
+          <Route path='/reject-singers' element={<ProtectedRoute><RejectedSingersList /> </ProtectedRoute>} />
          
         </Routes>
       </BrowserRouter>

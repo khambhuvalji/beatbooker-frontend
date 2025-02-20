@@ -49,7 +49,7 @@ function ApprovedSingersList() {
     {
       title: "Name",
       dataIndex: "name",
-      render: (text, record) => <span>{record.firstName} {record.lastName}</span>
+      render: (text, record) => <span>{record.name}</span>
     },
     {
       title: "Phone",
