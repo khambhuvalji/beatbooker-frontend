@@ -38,7 +38,7 @@ function PendingSingersList() {
             getSingersData()
           }
         } catch (error) {
-          toast.error("Error changing doctor account status")
+          toast.error("Error changing singer account status")
         }
       }
 
@@ -55,7 +55,7 @@ function PendingSingersList() {
             getSingersData()
           }
         } catch (error) {
-          toast.error("Error changing doctor account status")
+          toast.error("Error changing singer account status")
         }
       }
 
